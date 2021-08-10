@@ -25,8 +25,17 @@ public class SegUsuarioAgenciaService {
 
     @Transactional
     public void insertarAgencias(List<SegUsuarioAgencia> agencias) {
+        List<SegUsuarioAgencia> agenciasprevias=this.segUsuarioAgenciaRepo
+                .findByPkCodUsuario(agencias.get(0).getPk().getCodUsuario());
         
         int count = 0;
+        
+        for (SegUsuarioAgencia s : agenciasprevias) {
+            if ("S".equals(s.getPorOmision())) {
+                count++;
+            }
+        }
+        
         for (SegUsuarioAgencia s : agencias) {
             if ("S".equals(s.getPorOmision())) {
                 count++;
