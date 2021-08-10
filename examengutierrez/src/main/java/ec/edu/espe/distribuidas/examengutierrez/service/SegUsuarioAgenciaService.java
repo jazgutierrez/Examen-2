@@ -6,9 +6,12 @@
 package ec.edu.espe.distribuidas.examengutierrez.service;
 
 import ec.edu.espe.distribuidas.examengutierrez.dao.SegUsuarioAgenciaRepository;
+import ec.edu.espe.distribuidas.examengutierrez.dao.SegUsuarioRepository;
 import ec.edu.espe.distribuidas.examengutierrez.exception.CreateException;
+import ec.edu.espe.distribuidas.examengutierrez.model.SegUsuario;
 import ec.edu.espe.distribuidas.examengutierrez.model.SegUsuarioAgencia;
 import java.util.List;
+import java.util.Optional;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
@@ -22,6 +25,8 @@ public class SegUsuarioAgenciaService {
         this.segUsuarioAgenciaRepo = segUsuarioAgenciaRepo;
     }
 
+    
+
     public void insertarAgencias(List<SegUsuarioAgencia> agencias) {
         int count = 0;
         for (SegUsuarioAgencia s : agencias) {
@@ -33,7 +38,7 @@ public class SegUsuarioAgenciaService {
             for (SegUsuarioAgencia s : agencias) {
                 this.segUsuarioAgenciaRepo.save(s);
             }
-        }else{
+        } else {
             throw new CreateException("El usuario debe tener una agencia por omisión");
         }
     }

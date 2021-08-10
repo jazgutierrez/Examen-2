@@ -5,11 +5,13 @@
  */
 package ec.edu.espe.distribuidas.examengutierrez.dto;
 
+import java.util.List;
 import lombok.Data;
 
 @Data
 public class SegUsuarioAgenciaRQ {
-    private String codEmpresa;
-    private String porOmision;
+
+    private String codUsuario;
+    private List<AgenciaRQ> agencias;
     
 }

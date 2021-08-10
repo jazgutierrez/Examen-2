@@ -8,7 +8,8 @@ package ec.edu.espe.distribuidas.examengutierrez.dto;
 import lombok.Data;
 
 @Data
-public class AgenciasRQ {
+public class AgenciaRQ {
+    private String codEmpresa;
     private String codAgencia;
-    private String nombre;
+    private String porOmision;
 }
