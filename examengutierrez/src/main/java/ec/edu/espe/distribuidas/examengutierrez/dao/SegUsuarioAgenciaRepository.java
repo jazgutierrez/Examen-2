@@ -7,9 +7,11 @@ package ec.edu.espe.distribuidas.examengutierrez.dao;
 
 import ec.edu.espe.distribuidas.examengutierrez.model.SegUsuarioAgencia;
 import ec.edu.espe.distribuidas.examengutierrez.model.SegUsuarioAgenciaPK;
+import java.util.List;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 
 public interface SegUsuarioAgenciaRepository extends JpaRepository<SegUsuarioAgencia, SegUsuarioAgenciaPK> {
  
+    List<SegUsuarioAgencia> findByPkCodUsuario(String codUsuario);
 }

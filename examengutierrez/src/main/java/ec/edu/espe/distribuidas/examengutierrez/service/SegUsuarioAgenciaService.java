@@ -6,12 +6,10 @@
 package ec.edu.espe.distribuidas.examengutierrez.service;
 
 import ec.edu.espe.distribuidas.examengutierrez.dao.SegUsuarioAgenciaRepository;
-import ec.edu.espe.distribuidas.examengutierrez.dao.SegUsuarioRepository;
 import ec.edu.espe.distribuidas.examengutierrez.exception.CreateException;
-import ec.edu.espe.distribuidas.examengutierrez.model.SegUsuario;
 import ec.edu.espe.distribuidas.examengutierrez.model.SegUsuarioAgencia;
 import java.util.List;
-import java.util.Optional;
+import javax.transaction.Transactional;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
@@ -25,9 +23,9 @@ public class SegUsuarioAgenciaService {
         this.segUsuarioAgenciaRepo = segUsuarioAgenciaRepo;
     }
 
-    
-
+    @Transactional
     public void insertarAgencias(List<SegUsuarioAgencia> agencias) {
+        
         int count = 0;
         for (SegUsuarioAgencia s : agencias) {
             if ("S".equals(s.getPorOmision())) {
